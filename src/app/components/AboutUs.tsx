@@ -38,7 +38,7 @@ export function AboutUs({ onPageChange }: AboutUsProps) {
   const companyStats = [
     { value: '2018', label: 'Founded', icon: <Calendar className="h-5 w-5" /> },
     { value: '500+', label: 'Global Installations', icon: <Globe className="h-5 w-5" /> },
-    { value: '50+', label: 'Team Members', icon: <Users className="h-5 w-5" /> },
+    { value: '500+', label: 'Team Members', icon: <Users className="h-5 w-5" /> },
     { value: '15+', label: 'Countries Served', icon: <MapPin className="h-5 w-5" /> }
   ];
 
