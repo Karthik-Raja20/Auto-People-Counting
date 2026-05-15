@@ -234,7 +234,7 @@ export function AboutUs({ onPageChange }: AboutUsProps) {
               Pioneering the Future of Intelligent Counting
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
-              Founded in 2018 by AI researchers from Stanford and Apple, APC Solutions transforms how organizations 
+              Founded in 2020 by AI researchers from Stanford and Apple, APC Solutions transforms how organizations 
               understand and optimize space utilization through cutting-edge people counting technology powered by our revolutionary APC EdgeBox™.
             </p>
             
