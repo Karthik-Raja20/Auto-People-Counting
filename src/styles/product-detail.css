@@ -1,0 +1,467 @@
+/* Product Detail Page Specific Styles */
+/* Following BEM methodology and 8px baseline grid */
+
+/* =================================================================
+   LAYOUT UTILITIES
+   ================================================================= */
+
+.product-detail {
+  --baseline: 8px;
+  --content-width: 1200px;
+  --section-padding: calc(var(--baseline) * 10); /* 80px */
+  --card-spacing: calc(var(--baseline) * 4); /* 32px */
+}
+
+/* Responsive grid system */
+.product-grid {
+  display: grid;
+  gap: var(--card-spacing);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .product-grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid--3col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .product-grid--4col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =================================================================
+   HERO SECTION
+   ================================================================= */
+
+.hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #f8fafc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* =================================================================
+   FEATURE CARDS
+   ================================================================= */
+
+.feature-card {
+  border-radius: calc(var(--baseline) * 2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.feature-card__icon {
+  width: calc(var(--baseline) * 8);
+  height: calc(var(--baseline) * 8);
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(37, 99, 235);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-card__icon {
+  background: rgb(37, 99, 235);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* =================================================================
+   DEMO SECTION
+   ================================================================= */
+
+.demo-panel {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: calc(var(--baseline) * 2);
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(16, 185, 129, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.demo-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Live data indicator */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--baseline) * 1);
+  background: rgba(16, 185, 129, 0.1);
+  color: rgb(5, 150, 105);
+  padding: calc(var(--baseline) * 1) calc(var(--baseline) * 2);
+  border-radius: calc(var(--baseline) * 4);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.live-indicator::before {
+  content: '';
+  width: calc(var(--baseline) * 1);
+  height: calc(var(--baseline) * 1);
+  background: rgb(16, 185, 129);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* =================================================================
+   PRICING CARDS
+   ================================================================= */
+
+.pricing-card {
+  border-radius: calc(var(--baseline) * 3);
+  background: white;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card--popular {
+  border-color: rgb(37, 99, 235);
+  box-shadow: 
+    0 10px 25px rgba(37, 99, 235, 0.2),
+    0 0 0 1px rgba(37, 99, 235, 0.1);
+  transform: scale(1.05);
+}
+
+.pricing-card--popular::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgb(37, 99, 235) 0%, rgb(16, 185, 129) 100%);
+}
+
+.pricing-card:hover:not(.pricing-card--popular) {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* =================================================================
+   TESTIMONIAL CARDS
+   ================================================================= */
+
+.testimonial-card {
+  background: white;
+  border-radius: calc(var(--baseline) * 2);
+  border: 2px solid #f3f4f6;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: calc(var(--baseline) * 2);
+  right: calc(var(--baseline) * 3);
+  font-size: 4rem;
+  font-family: serif;
+  color: rgba(37, 99, 235, 0.1);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =================================================================
+   PROGRESS BARS & METRICS
+   ================================================================= */
+
+.metric-card {
+  padding: calc(var(--baseline) * 3);
+  border-radius: calc(var(--baseline) * 2);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: scale(1.05);
+}
+
+.metric-card--blue {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  color: rgb(30, 64, 175);
+}
+
+.metric-card--green {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  color: rgb(5, 150, 105);
+}
+
+.metric-card--purple {
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+  color: rgb(126, 34, 206);
+}
+
+.metric-card--orange {
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+  color: rgb(194, 65, 12);
+}
+
+/* Progress indicators */
+.progress-bar {
+  height: calc(var(--baseline) * 1);
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: calc(var(--baseline) * 0.5);
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, rgb(37, 99, 235) 0%, rgb(16, 185, 129) 100%);
+  border-radius: calc(var(--baseline) * 0.5);
+  transition: width 1s ease-in-out;
+}
+
+/* =================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ================================================================= */
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .feature-card,
+  .pricing-card,
+  .testimonial-card {
+    border-color: #000;
+    border-width: 3px;
+  }
+  
+  .feature-card__icon {
+    background: #000;
+    color: #fff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .pricing-card,
+  .testimonial-card,
+  .metric-card {
+    transition: none;
+  }
+  
+  .feature-card:hover,
+  .pricing-card:hover,
+  .testimonial-card:hover {
+    transform: none;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.feature-card:focus-within,
+.pricing-card:focus-within,
+.testimonial-card:focus-within {
+  outline: 2px solid rgb(37, 99, 235);
+  outline-offset: 2px;
+}
+
+/* =================================================================
+   RESPONSIVE TYPOGRAPHY
+   ================================================================= */
+
+.section-title {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: rgb(17, 24, 39);
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgb(107, 114, 128);
+  line-height: 1.6;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+/* =================================================================
+   UTILITY CLASSES
+   ================================================================= */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.content-grid {
+  display: grid;
+  gap: var(--card-spacing);
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--baseline);
+}
+
+@media (min-width: 640px) {
+  .content-grid {
+    padding: 0 calc(var(--baseline) * 3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-grid {
+    padding: 0 calc(var(--baseline) * 4);
+  }
+}
+
+/* Spacing utilities following 8px baseline */
+.space-y-baseline > * + * {
+  margin-top: var(--baseline);
+}
+
+.space-y-baseline-2 > * + * {
+  margin-top: calc(var(--baseline) * 2);
+}
+
+.space-y-baseline-4 > * + * {
+  margin-top: calc(var(--baseline) * 4);
+}
+
+.space-y-baseline-8 > * + * {
+  margin-top: calc(var(--baseline) * 8);
+}
+
+/* =================================================================
+   ANIMATIONS
+   ================================================================= */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation classes */
+.animate-slide-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* Stagger animations */
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* =================================================================
+   PRINT STYLES
+   ================================================================= */
+
+@media print {
+  .product-detail {
+    --section-padding: calc(var(--baseline) * 4);
+  }
+  
+  .hero,
+  .demo-panel {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .feature-card,
+  .pricing-card,
+  .testimonial-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  
+  .live-indicator::before {
+    animation: none;
+  }
+}

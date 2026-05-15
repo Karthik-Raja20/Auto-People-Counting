@@ -1,0 +1,1 @@
+Cleaning up temporary files - ProductDetailModalUpdated.tsx is no longer needed as changes have been merged into ProductDetailModal.tsx

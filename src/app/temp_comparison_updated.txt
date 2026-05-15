@@ -1,0 +1,282 @@
+          {/* Feature Comparison Tab */}
+          <TabsContent value="comparison" className="space-y-8">
+            {/* Complete Feature Comparison Matrix */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <BarChart3 className="h-6 w-6 text-primary" />
+                  Feature Comparison Matrix
+                </CardTitle>
+                <CardDescription>
+                  Compare features, specifications, and capabilities across all APC solutions
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-4 font-semibold">Feature</th>
+                        <th className="text-center p-4 font-semibold">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white bg-primary">
+                              <Users className="h-4 w-4" />
+                            </div>
+                            <span>APC Core</span>
+                          </div>
+                        </th>
+                        <th className="text-center p-4 font-semibold">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white bg-accent">
+                              <BarChart3 className="h-4 w-4" />
+                            </div>
+                            <span>APC Flex</span>
+                          </div>
+                        </th>
+                        <th className="text-center p-4 font-semibold">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white bg-blue-500">
+                              <Wifi className="h-4 w-4" />
+                            </div>
+                            <span>APC Link</span>
+                          </div>
+                        </th>
+                        <th className="text-center p-4 font-semibold">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white bg-purple-500">
+                              <Music className="h-4 w-4" />
+                            </div>
+                            <span>APC EventSense</span>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b bg-orange-50">
+                        <td className="p-4 font-semibold text-orange-800">Accuracy Range</td>
+                        <td className="text-center p-4 font-bold text-orange-600">
+                          Up to 97% to 99%
+                        </td>
+                        <td className="text-center p-4 font-bold text-orange-600">
+                          Up to 95% to 99%
+                        </td>
+                        <td className="text-center p-4 font-bold text-orange-600">
+                          Up to 92% to 98%
+                        </td>
+                        <td className="text-center p-4 font-bold text-orange-600">
+                          Up to 85% to 95%
+                        </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-4 font-semibold">Processing Power</td>
+                        {productsData.map((product) => (
+                          <td key={product.id} className="text-center p-4 text-sm">
+                            {product.specifications.processing}
+                          </td>
+                        ))}
+                      </tr>
+                      <tr className="border-b bg-gray-50">
+                        <td className="p-4 font-semibold">One-time Price</td>
+                        {productsData.map((product) => (
+                          <td key={product.id} className="text-center p-4 font-bold text-primary">
+                            {product.price}
+                          </td>
+                        ))}
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-4 font-semibold">Monthly Subscription</td>
+                        {productsData.map((product) => (
+                          <td key={product.id} className="text-center p-4 font-bold text-green-600">
+                            {product.monthlyPrice}
+                          </td>
+                        ))}
+                      </tr>
+                      <tr className="border-b bg-gray-50">
+                        <td className="p-4 font-semibold">Deployment Type</td>
+                        {productsData.map((product) => (
+                          <td key={product.id} className="text-center p-4 text-sm">
+                            {product.specifications.deployment}
+                          </td>
+                        ))}
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-4 font-semibold">Connectivity</td>
+                        {productsData.map((product) => (
+                          <td key={product.id} className="text-center p-4 text-sm">
+                            {product.specifications.connectivity}
+                          </td>
+                        ))}
+                      </tr>
+                      <tr className="border-b bg-gray-50">
+                        <td className="p-4 font-semibold">Support Level</td>
+                        {productsData.map((product) => (
+                          <td key={product.id} className="text-center p-4 text-sm">
+                            {product.specifications.support}
+                          </td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Accuracy Range Comparison - Moved Down */}
+            <Card className="border-2 border-orange-200 bg-gradient-to-r from-orange-50 to-yellow-50">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-orange-800">
+                  <Gauge className="h-6 w-6" />
+                  Accuracy Range Comparison
+                </CardTitle>
+                <CardDescription className="text-orange-700">
+                  Detailed accuracy specifications across all APC solutions
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-4 gap-4 mb-6">
+                  <Card className="text-center border-2 border-orange-200">
+                    <CardContent className="p-4">
+                      <div className="w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center text-white bg-primary">
+                        <Users className="h-6 w-6" />
+                      </div>
+                      <h3 className="font-semibold mb-2">APC Core</h3>
+                      <div className="text-2xl font-bold text-orange-600 mb-1">
+                        Up to 97% to 99%
+                      </div>
+                      <Badge className="bg-primary text-white text-xs">
+                        Most Popular
+                      </Badge>
+                    </CardContent>
+                  </Card>
+                  <Card className="text-center border-2 border-orange-200">
+                    <CardContent className="p-4">
+                      <div className="w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center text-white bg-accent">
+                        <BarChart3 className="h-6 w-6" />
+                      </div>
+                      <h3 className="font-semibold mb-2">APC Flex</h3>
+                      <div className="text-2xl font-bold text-orange-600 mb-1">
+                        Up to 95% to 99%
+                      </div>
+                      <Badge className="bg-accent text-white text-xs">
+                        Best Value
+                      </Badge>
+                    </CardContent>
+                  </Card>
+                  <Card className="text-center border-2 border-orange-200">
+                    <CardContent className="p-4">
+                      <div className="w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center text-white bg-blue-500">
+                        <Wifi className="h-6 w-6" />
+                      </div>
+                      <h3 className="font-semibold mb-2">APC Link</h3>
+                      <div className="text-2xl font-bold text-orange-600 mb-1">
+                        Up to 92% to 98%
+                      </div>
+                      <Badge className="bg-blue-500 text-white text-xs">
+                        Maximum ROI
+                      </Badge>
+                    </CardContent>
+                  </Card>
+                  <Card className="text-center border-2 border-orange-200">
+                    <CardContent className="p-4">
+                      <div className="w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center text-white bg-purple-500">
+                        <Music className="h-6 w-6" />
+                      </div>
+                      <h3 className="font-semibold mb-2">APC EventSense</h3>
+                      <div className="text-2xl font-bold text-orange-600 mb-1">
+                        Up to 85% to 95%
+                      </div>
+                      <Badge className="bg-purple-500 text-white text-xs">
+                        Event Rental
+                      </Badge>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Accuracy Conditions and Disclaimer */}
+                <Card className="bg-blue-50 border-blue-200">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-blue-800">
+                      <Info className="h-5 w-5" />
+                      Achieving Optimal Accuracy
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-blue-700 font-medium">
+                      We offer a range of accuracy levels, from 85% to 99%, depending on specific parameters. 
+                      Achieving optimal accuracy requires:
+                    </p>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckCircle className="h-3 w-3 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-blue-800">Controlled Environment</h4>
+                            <p className="text-sm text-blue-600">Consistent and stable environmental conditions.</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckCircle className="h-3 w-3 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-blue-800">Operator Expertise</h4>
+                            <p className="text-sm text-blue-600">Proper training and device operation are essential.</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckCircle className="h-3 w-3 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-blue-800">Stable Power Supply</h4>
+                            <p className="text-sm text-blue-600">Dedicated, 24x7 power systems, proper cabling, POE switches, and high-quality hardware (client's responsibility) are crucial for seamless performance.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckCircle className="h-3 w-3 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-blue-800">Protected Sensor Setup</h4>
+                            <p className="text-sm text-blue-600">Secure, weatherproof coverings that safeguard sensors and associated hardware, ensuring reliable operation in varying weather conditions; regular cleaning protocols maintained by the client are recommended to sustain accuracy.</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckCircle className="h-3 w-3 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-blue-800">Traffic Flow Management</h4>
+                            <p className="text-sm text-blue-600">Proper pathways and traffic movement protocols, including strict traffic guidelines for all employees, to minimize interference and improve data precision.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <Card className="bg-yellow-50 border-yellow-200">
+                      <CardContent className="p-4">
+                        <div className="flex items-start gap-3">
+                          <AlertTriangle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-yellow-800 mb-2">Disclaimer</h4>
+                            <p className="text-sm text-yellow-700">
+                              *Accuracy may vary based on environmental and operational factors. Adhering to all recommended conditions and maintenance guidelines will help achieve the highest accuracy levels.
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CardContent>
+                </Card>
+              </CardContent>
+            </Card>
+          </TabsContent>

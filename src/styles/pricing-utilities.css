@@ -1,0 +1,118 @@
+/* Additional responsive pricing utilities for tight layouts */
+
+@layer utilities {
+  /* Extra compact pricing for very tight spaces */
+  .price-extra-compact {
+    font-size: var(--text-base);
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 480px) {
+    .price-extra-compact {
+      font-size: var(--text-sm);
+    }
+  }
+
+  @media (max-width: 320px) {
+    .price-extra-compact {
+      font-size: var(--text-xs);
+    }
+  }
+
+  /* Compact rental pricing for tight grid layouts */
+  .rental-price-compact {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  @media (max-width: 1024px) {
+    .rental-price-compact {
+      font-size: var(--text-base);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .rental-price-compact {
+      font-size: var(--text-sm);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .rental-price-compact {
+      font-size: var(--text-xs);
+    }
+  }
+
+  /* Even smaller pricing for extreme constraints */
+  .price-micro {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    line-height: 1.0;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 320px) {
+    .price-micro {
+      font-size: 0.625rem; /* 10px */
+    }
+  }
+
+  /* Line clamp utilities for feature text */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  /* Rental card specific grid improvements */
+  .rental-grid-responsive {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .rental-grid-responsive {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .rental-grid-responsive {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Equal height cards for grid */
+  .card-equal-height {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-equal-height .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-equal-height .features-section {
+    flex: 1;
+  }
+
+  .card-equal-height .cta-button {
+    margin-top: auto;
+  }
+}

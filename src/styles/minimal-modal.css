@@ -1,0 +1,343 @@
+/* Minimal Modal Styles */
+@layer components {
+  .minimal-modal {
+    /* Ensure modal appears centered and within viewport */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Constrain size as specified */
+    width: 100%;
+    max-width: 280px;
+    min-width: 240px;
+    max-height: 90vh;
+    
+    /* Elegant styling */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+    
+    /* Smooth animations */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Prevent content overflow */
+    overflow: visible;
+  }
+
+  .minimal-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    z-index: 50;
+    
+    /* Smooth fade in/out */
+    transition: opacity 0.3s ease-out;
+  }
+
+  .minimal-modal-header {
+    /* Compact header with perfect spacing */
+    padding: 12px;
+    border-bottom: none;
+    
+    /* Clickable area optimization */
+    cursor: pointer;
+    user-select: none;
+    
+    /* Hover states */
+    transition: background-color 0.2s ease;
+  }
+
+  .minimal-modal-header:hover {
+    background-color: #f9fafb;
+  }
+
+  .minimal-modal-header:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+  }
+
+  .minimal-modal-content {
+    /* Content area with proper spacing */
+    padding: 0 12px 12px;
+    
+    /* Smooth expand/collapse animation */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .minimal-modal-specs-container {
+    /* Specs display container */
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 12px;
+    
+    /* Subtle inner shadow */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .minimal-modal-spec-item {
+    /* Individual spec item */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .minimal-modal-spec-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .minimal-modal-spec-label {
+    /* Spec labels */
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  .minimal-modal-spec-value {
+    /* Spec values */
+    font-size: 12px;
+    color: #111827;
+    text-align: right;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+
+  .minimal-modal-close {
+    /* Close button positioning */
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    
+    /* Styling */
+    padding: 4px;
+    color: #9ca3af;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    /* Transitions */
+    transition: color 0.2s ease;
+  }
+
+  .minimal-modal-close:hover {
+    color: #6b7280;
+    background: #f3f4f6;
+  }
+
+  .minimal-modal-close:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 1px;
+  }
+
+  .minimal-modal-icon {
+    /* Icon styling */
+    width: 20px;
+    height: 20px;
+    color: #6b7280;
+    flex-shrink: 0;
+  }
+
+  .minimal-modal-title {
+    /* Title styling - small and elegant */
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .minimal-modal-chevron {
+    /* Chevron icon */
+    width: 16px;
+    height: 16px;
+    color: #9ca3af;
+    transition: transform 0.2s ease;
+  }
+
+  /* Animation states */
+  .minimal-modal-enter {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  .minimal-modal-enter-active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .minimal-modal-exit {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .minimal-modal-exit-active {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  /* Content expand/collapse states */
+  .minimal-modal-content-collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .minimal-modal-content-expanded {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  /* Quick specs button styles */
+  .quick-specs-button {
+    /* Button base styling */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    
+    /* Size variants */
+    padding: 8px 12px;
+    font-size: 14px;
+    
+    /* Styling */
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    color: #374151;
+    font-weight: 500;
+    
+    /* Interactions */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+
+  .quick-specs-button:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+    color: #111827;
+  }
+
+  .quick-specs-button:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 1px;
+  }
+
+  .quick-specs-button:active {
+    transform: translateY(1px);
+  }
+
+  .quick-specs-button-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  /* Inline icon variant */
+  .inline-specs-icon {
+    padding: 4px;
+    color: #9ca3af;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .inline-specs-icon:hover {
+    color: #6b7280;
+    background: #f3f4f6;
+  }
+
+  .inline-specs-icon:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 1px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 320px) {
+  .minimal-modal {
+    max-width: 260px;
+    min-width: 220px;
+  }
+  
+  .minimal-modal-title {
+    font-size: 13px;
+  }
+  
+  .minimal-modal-spec-label,
+  .minimal-modal-spec-value {
+    font-size: 11px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .minimal-modal {
+    border: 2px solid #000;
+  }
+  
+  .minimal-modal-specs-container {
+    border: 1px solid #000;
+  }
+  
+  .quick-specs-button {
+    border: 1px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .minimal-modal,
+  .minimal-modal-content,
+  .minimal-modal-chevron,
+  .quick-specs-button {
+    transition: none;
+  }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+  .minimal-modal {
+    background: #1f2937;
+    color: #f9fafb;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .minimal-modal-specs-container {
+    background: #374151;
+    border-color: #4b5563;
+  }
+  
+  .minimal-modal-spec-label {
+    color: #9ca3af;
+  }
+  
+  .minimal-modal-spec-value {
+    color: #f9fafb;
+  }
+  
+  .quick-specs-button {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+  
+  .quick-specs-button:hover {
+    background: #4b5563;
+    border-color: #6b7280;
+  }
+}
